@@ -19,7 +19,6 @@ services:
     - 80:80
     - 8080:8080
     - 8081:8081
-    - 8082:8082
     - 5000:5000
     volumes:
     - ./data/nginx/:/etc/nginx/

@@ -7,8 +7,6 @@ networks:
 volumes:
   data-jenkins:
   data-nexus:
-  data-gitea:
-  data-mysql:
 
 services:
   nginx:
@@ -30,7 +28,7 @@ services:
     networks:
     - ci-cd
   nexus:
-    image: sonatype/nexus3:3.15.0
+    image: sonatype/nexus3:3.15.2
     container_name: nexus
     restart: always
     deploy:
@@ -44,7 +42,7 @@ services:
     - data-nexus:/sonatype-work
     - data-nexus:/nexus-data
   jenkins:
-    image: jenkinsci/blueocean:1.10.1
+    image: jenkinsci/blueocean:1.13.2
     container_name: jenkins
     restart: always
     deploy:
@@ -57,36 +55,3 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     networks:
     - ci-cd
-  gitea:
-    image: gitea/gitea:1.7
-    container_name: gitea
-    restart: always
-    deploy:
-      replicas: 3
-    expose:
-    - 3000
-    - 22
-    depends_on:
-    - mysql
-    volumes:
-    - data-gitea:/data
-    networks:
-    - ci-cd
-    - gitea
-  mysql:
-    image: mysql:5.7
-    container_name: mysql
-    restart: always
-    deploy:
-      replicas: 3
-    expose:
-    - 3306
-    environment:
-    - MYSQL_DATABASE=gitea
-    - MYSQL_USER=gitea
-    - MYSQL_PASSWORD=PZKJ352Wbnio4BH8MtLwfsugdunAm8
-    - MYSQL_ROOT_PASSWORD=PZKJ352Wbnio4BH8MtLwfsugdunAm8
-    volumes:
-    - data-mysql:/var/lib/mysql
-    networks:
-    - gitea

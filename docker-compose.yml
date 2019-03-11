@@ -2,7 +2,6 @@ version: '3.7'
 
 networks:
   ci-cd:
-  gitea:
 
 volumes:
   data-jenkins:
@@ -10,7 +9,7 @@ volumes:
 
 services:
   nginx:
-    image: nginx:1.14-alpine-perl
+    image: nginx:1.15.9-alpine
     container_name: nginx
     restart: always
     deploy:

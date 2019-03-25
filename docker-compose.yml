@@ -34,7 +34,6 @@ services:
     - data-nexus:/nexus-data
   jenkins:
     build: ./jenkins/
-    image: jenkinsci/blueocean:1.13.2
     container_name: jenkins
     restart: always
     expose:

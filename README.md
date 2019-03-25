@@ -10,7 +10,7 @@ Running `docker` and  `docker-compose` installation.
 command:
 ```
 # Start docker-compose scenario as daemon
-docker-compose up --build -d
+docker-compose up -d --no-deps --build
 ```
 
 ## Environments

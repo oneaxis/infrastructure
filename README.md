@@ -4,17 +4,23 @@
 Running `docker` and  `docker-compose` installation.
 
 ## Startup
-
-To get the infrastructure running, execute the following 
+- Don't forget to set a htpasswd to secure the startpage (required step to startup
+`nginx` in this case). Here: `./data/nginx/conf.d/nginx.htpasswd`
+- To get the infrastructure running, execute the following 
 command:
 ```
 # Start docker-compose scenario as daemon
 docker-compose up --build -d
 ```
 
+## Environments
+- DevOps (base url: `*.host`)
+- Integration (base url: `*.integration.host`)
+- Integration (base url: `*.host`)
+
 ### Configuration
 #### Jenkins
-* URL: <http://jenkins.1.2.3.4>
+- Base url: `jenkins.host`
 
 ##### Installation
 Retrieve the initial installation password from
@@ -22,4 +28,7 @@ command line logs or access the container and open
 the named directory on the installation page.
 
 #### Nexus
-* URL: <http://nexus.1.2.3.4>
+- Base url: `nexus.host`
+
+##### Docker registry
+- Base url: `docker.nexus.host`

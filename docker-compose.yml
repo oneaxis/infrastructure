@@ -2,7 +2,9 @@ version: '3.7'
 
 networks:
   devops:
+    name: devops
   integration:
+    name: integration
 
 volumes:
   data-jenkins:

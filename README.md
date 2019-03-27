@@ -5,7 +5,8 @@ Running `docker` and  `docker-compose` installation.
 
 ## Startup
 - Don't forget to set a htpasswd to secure the startpage (required step to startup
-`nginx` in this case). Here: `./data/nginx/conf.d/nginx.htpasswd`
+`nginx` in this case). Here: `data/nginx/conf.d/nginx.htpasswd`
+- Also create directories for log entries under `data/nginx/logs`
 - To get the infrastructure running, execute the following 
 command:
 ```

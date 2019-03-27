@@ -6,7 +6,9 @@ networks:
 
 volumes:
   data-jenkins:
+    name: data-jenkins
   data-nexus:
+    name: data-nexus
 
 services:
   nginx:

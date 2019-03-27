@@ -1,0 +1,17 @@
+version: '3.7'
+
+networks:
+  production:
+    name: production
+
+services:
+  nginx:
+    image: nginx:1.15.9-alpine
+    container_name: nginx-production
+    restart: always
+    ports:
+    - 8081:8081
+    volumes:
+    - ./data/nginx/:/etc/nginx/
+    networks:
+    - production

@@ -1,0 +1,17 @@
+version: '3.7'
+
+networks:
+  integration:
+    name: integration
+
+services:
+  nginx:
+    image: nginx:1.15.9-alpine
+    container_name: nginx-integration
+    restart: always
+    ports:
+    - 8080:8080
+    volumes:
+    - ./data/nginx/:/etc/nginx/
+    networks:
+    - integration

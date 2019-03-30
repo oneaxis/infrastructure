@@ -4,6 +4,10 @@ networks:
   integration:
     name: integration
 
+volumes:
+  data-nginx:
+    name: data-nginx-integration
+
 services:
   nginx:
     image: nginx:1.15.9-alpine
@@ -13,5 +17,6 @@ services:
     - 8080:8080
     volumes:
     - ./data/nginx/:/etc/nginx/
+    - data-nginx:/data-nginx/logs
     networks:
     - integration

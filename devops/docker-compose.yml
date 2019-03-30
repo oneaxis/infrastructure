@@ -9,6 +9,8 @@ volumes:
     name: data-jenkins
   data-nexus:
     name: data-nexus
+  data-nginx:
+    name: data-nginx-devops
 
 services:
   nginx:
@@ -19,6 +21,7 @@ services:
     - 80:80
     volumes:
     - ./data/nginx/:/etc/nginx/
+    - data-nginx:/data-nginx/logs
     networks:
     - devops
   nexus:

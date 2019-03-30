@@ -16,10 +16,22 @@ docker-compose up -d --no-deps --build
 
 ## Environments
 - DevOps (base url: `*.host`)
-- Integration (base url: `*.integration.host`)
-- Integration (base url: `*.host`)
+- Integration (base url: `*.integration.host:8080`)
+- Production (base url: `*production.host:8081`)
 
 ### Configuration
+#### Nginx
+##### Security
+- nginx.htpasswd: `data/nginx/conf.d/nginx.htpasswd`
+
+##### Access
+To access a service in production and integration environment, 
+use the corresponding environment base url (see Environments) and 
+add the service name, like `service-name123.environment.host:port`. Rules for 
+service naming:
+- No underscores `_` allowed 
+- Characters `a-z, A-Z`, numbers `0-9` and dash `-` allowed
+
 #### Jenkins
 - Base url: `jenkins.host`
 
